@@ -1,4 +1,5 @@
 package com.social.media.Services;
+import com.social.media.models.SocialGroup;
 import com.social.media.models.SocialUser;
 import com.social.media.repositories.SocialUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +24,10 @@ public class SocialService {
         return createdUser;
     }
 
+    public SocialUser deleteUser(Long id) {
+        SocialUser socialUser = socialUserRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("user not found"));
+        socialUserRepository.delete(socialUser);
+        return socialUser;
+    }
 }
