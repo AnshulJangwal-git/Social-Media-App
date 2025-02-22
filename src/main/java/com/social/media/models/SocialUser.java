@@ -30,6 +30,7 @@ public class SocialUser {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id")
     )
+//    @JsonIgnore
     private Set<SocialGroup> groups = new HashSet<>();
 
     @Override
